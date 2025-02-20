@@ -1,0 +1,114 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradiente de fundo */
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateY(-10%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(0%);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+    border-color: #2575fc;
+    background-color: #ffffff;
+    box-shadow: 0 0 12px rgba(37, 117, 252, 0.3);
+}
+
+input::placeholder {
+    color: #aaa;
+    font-weight: 300;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #6a11cb;
+    transform: translateY(-2px);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+    font-weight: 400;
+}
+
+.footer a {
+    color: #2575fc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #6a11cb;
+    text-decoration: underline;
+}
+
+/* Efeitos de transição */
+button:active {
+    transform: translateY(1px);
+}
+
+input:focus {
+    outline: none;
+}
