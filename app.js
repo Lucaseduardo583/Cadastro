@@ -1,8 +1,6 @@
-// Função para validar o formulário
-function validarFormulario(event) {
+document.getElementById('cadastro-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio do formulário até que as validações sejam feitas
 
-    // Obtendo os valores dos campos do formulário
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value.trim();
@@ -12,84 +10,46 @@ function validarFormulario(event) {
 
     let formIsValid = true;
 
-    // Validação de Nome
-    if (!nome) {
-        mostrarErro('nome', 'O nome é obrigatório.');
+    // Validação do nome
+    if (!nome || nome.length < 5 || nome.length > 60) {
+        alert("O nome deve ter entre 5 e 60 caracteres.");
         formIsValid = false;
-    } else {
-        removerErro('nome');
     }
 
-    // Validação de E-mail (uso de regex simples)
+    // Validação de E-mail (expressão regular simples)
     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!email || !regexEmail.test(email)) {
-        mostrarErro('email', 'Por favor, insira um e-mail válido.');
+        alert("Por favor, insira um e-mail válido.");
         formIsValid = false;
-    } else {
-        removerErro('email');
     }
 
     // Validação de Senha
-    if (!senha || senha.length < 6) {
-        mostrarErro('senha', 'A senha deve ter pelo menos 6 caracteres.');
+    if (!senha || senha.length < 6 || senha.length > 60) {
+        alert("A senha deve ter entre 6 e 60 caracteres.");
         formIsValid = false;
-    } else {
-        removerErro('senha');
     }
 
     // Validação de Confirmação de Senha
     if (senha !== confirmarSenha) {
-        mostrarErro('confirmar-senha', 'As senhas não coincidem.');
+        alert("As senhas não coincidem.");
         formIsValid = false;
-    } else {
-        removerErro('confirmar-senha');
     }
 
     // Validação de Cidade
     if (!cidade) {
-        mostrarErro('cidade', 'A cidade é obrigatória.');
+        alert("A cidade é obrigatória.");
         formIsValid = false;
-    } else {
-        removerErro('cidade');
     }
 
     // Validação de Estado
     if (!estado) {
-        mostrarErro('estado', 'Selecione o estado.');
+        alert("Por favor, selecione um estado.");
         formIsValid = false;
-    } else {
-        removerErro('estado');
     }
 
-    // Se o formulário for válido, enviamos os dados
+    // Se o formulário for válido
     if (formIsValid) {
-        alert('Cadastro realizado com sucesso!');
-        // Aqui você pode adicionar uma lógica para enviar os dados do formulário
-        // como uma requisição AJAX ou outras ações de processamento
+        alert("Cadastro realizado com sucesso!");
+        // Aqui você pode adicionar lógica para enviar os dados do formulário
     }
-}
-
-// Função para mostrar mensagens de erro
-function mostrarErro(campo, mensagem) {
-    const input = document.getElementById(campo);
-    const error = document.createElement('div');
-    error.classList.add('error-message');
-    error.textContent = mensagem;
-
-    // Verifica se a mensagem de erro já existe para o campo
-    if (!input.nextElementSibling || !input.nextElementSibling.classList.contains('error-message')) {
-        input.insertAdjacentElement('afterend', error);
-    }
-}
-
-// Função para remover mensagens de erro
-function removerErro(campo) {
-    const input = document.getElementById(campo);
-    const error = input.nextElementSibling;
-    if (error && error.classList.contains('error-message')) {
-        error.remove();
-    }
-}
-
-// Adiciona um ouvinte de evento para o envio do formulário
-document.querySelector('form').addEventListener('submit', validarFormulario);
+});

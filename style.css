@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background: linear-gradient(135deg, #7599ff, #003797); /* Gradiente bonito */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,35 +17,23 @@ body {
     transition: background 0.4s ease-in-out;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.form-wrapper {
-    background: rgba(255, 255, 255, 0.1);
+.register-container {
+    background: rgba(255, 255, 255, 0.1); /* Transparente com fundo branco */
     padding: 40px 50px;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
     width: 100%;
+    max-width: 450px;
     text-align: center;
     backdrop-filter: blur(10px);
 }
 
-.title {
-    font-size: 28px;
+h1 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    animation: fadeIn 1s ease-out;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
 }
 
 .input-group {
@@ -74,7 +62,7 @@ input:focus, select:focus {
 button {
     padding: 15px;
     font-size: 18px;
-    background-color: #8e44ad;
+    background-color: #2575fc;
     border: none;
     border-radius: 8px;
     color: white;
@@ -83,28 +71,33 @@ button {
 }
 
 button:hover {
-    background-color: #9b59b6;
+    background-color: #6a11cb;
     transform: translateY(-4px);
 }
 
-/* Animações */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.footer a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 /* Efeitos responsivos */
 @media (max-width: 480px) {
-    .form-wrapper {
+    .register-container {
         padding: 30px 20px;
     }
 
-    .title {
-        font-size: 24px;
+    h1 {
+        font-size: 2rem;
     }
 
     input, select {
